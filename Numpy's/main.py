@@ -1,5 +1,5 @@
 from timeit import timeit
-
+import time 
 import numpy as np
 
 
@@ -128,22 +128,21 @@ print(np.exp(a1))
 
 # Aggregation
 print(np.sum(a1))
-
-# massive_array = np.random.random(100000)
-# massive_array.size, type(massive_array)
-# print(massive_array)
-
-# print(timeit(np.sum(massive_array)))
-
-
-
 import random 
 massive_list = [random.randint(0, 10) for i in range (100000)]
-len(massive_list), type(massive_list)
-massive_list[:10]
+print (len(massive_list), type(massive_list))
+print (massive_list[:10])
+
+start_time = time.time()
+np.sum(massive_list)
+
+end_time = time.time()
+
+total_time = end_time - start_time
+print(f"Numpy sum took: {total_time:.5f} seconds")
+# ---------------------------------------------------------
 
 
-print(timeit(lambda: sum(massive_list)))
 
 np.random.seed(0)
 matrix = np.random.random(size=(5, 3, 3))
