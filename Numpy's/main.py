@@ -134,6 +134,7 @@ print (len(massive_list), type(massive_list))
 print (massive_list[:10])
 
 start_time = time.time()
+
 np.sum(massive_list)
 
 end_time = time.time()
