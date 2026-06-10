@@ -16,18 +16,23 @@ import pandas as pd
 
 # Read from the csv file 
 df = pd.read_csv("Numpy's/LinearProject/DataSet/OWID_CB_COAL_CO2.csv")
+print(df.columns.tolist)
+print(df.head(2))
 
+# Filtering data
+canada_df = df[df['REF_AREA'] == 'CAN']
 
 # Axises / plotting data using x and y values 
-plt.plot(df['x'], df['y'])
+canada_df.plot(x='TIME_PERIOD', y='OBS_VALUE', color='skyblue', label='Canada')
 
 # labels and etc
-plt.xLabel("X Axis YEARS")
+plt.xlabel("X Axis YEARS")
 plt.ylabel("Y Emissions")
 plt.title(" Canada's Carbon Emissions over the years")
+
+
+plt.legend()
 plt.show()
 
 
 
-# Reads the header from the csv data
-print(df.h
