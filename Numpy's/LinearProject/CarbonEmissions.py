@@ -21,14 +21,21 @@ print(df.head(2))
 
 # Filtering data
 canada_df = df[df['REF_AREA'] == 'CAN']
+united_states_df = df[df['REF_AREA'] == 'USA']
+china_df = df[df['REF_AREA'] == 'CHN']
+philippines_df = df[df['REF_AREA'] == 'PHL']
+
 
 # Axises / plotting data using x and y values 
 canada_df.plot(x='TIME_PERIOD', y='OBS_VALUE', color='skyblue', label='Canada')
+united_states_df.plot(x='TIME_PERIOD', y='OBS_VALUE', color='skyblue', label='United States')
+china_df.plot(x='TIME_PERIOD', y='OBS_VALUE', color='skyblue', label='China')
+philippines_df.plot(x='TIME_PERIOD', y='OBS_VALUE', color='skyblue', label='Philippines')
 
 # labels and etc
-plt.xlabel("X Axis YEARS")
-plt.ylabel("Y Emissions")
-plt.title(" Canada's Carbon Emissions over the years")
+plt.xlabel("YEARS")
+plt.ylabel("EMISSIONS")
+plt.title(" Annual Carbon Emissions over the years") 
 
 
 plt.legend()

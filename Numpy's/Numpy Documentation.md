@@ -40,4 +40,6 @@ which are playing a huge part in our reduction but their must be more to be done
 # Concepts learned here today
 
 -> learning how to open and read from a csv file which contains the dataset I've searched up on google
--> lots of google searches and references for matplotlib on what graph i wanted to do
+-> lots of google searches and references for matplotlib on what graph i wanted to do which was a line graph 
+-> a bit of ai assistance for errors due to me not finding the right index column for the data set
+
