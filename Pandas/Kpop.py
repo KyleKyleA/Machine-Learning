@@ -27,7 +27,7 @@ plt.xlabel("Birthplace by each kpop idol")
 plt.title("Kpop Idols ")
 plt.show()
 
-kpop_stats['Country'].value_counts().head(10).plot(kind='bar', color='skyblue', autopct='%1.1f%%')
+kpop_stats['Country'].value_counts().head(10).plot(kind='bar', color='skyblue')
 plt.xlabel("Country by each kpop idols")
 plt.title("Kpop idols")
 plt.show()
