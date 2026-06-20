@@ -99,7 +99,7 @@ print(f"Best model score on a single split of the data:  {clf.score(X_test, y_te
 
 
 # Saving model 
-pickle.dump(model, open("random_forest_1.pkl", "wb"))
+pickle.dump(model, open("random_forest_model_1.pkl", "wb"))
 
 # loading model
 loaded_pickle_model = pickle.load(open("random_forest_model_1.pkl", "rb"))
