@@ -7,6 +7,10 @@ from sklearn.ensemble import RandomForestClassifier
 # Metrics import
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import GridSearchCV
+
+# Saving model
+import pickle
 
 # Preparing data through csv file or creating a table manually
 heart_disease = pd.read_csv("https://raw.githubusercontent.com/mrdbourke/zero-to-mastery-ml/master/data/heart-disease.csv")
@@ -68,4 +72,35 @@ for i in range(100, 200, 10):
     cross_val_mean = np.mean(cross_val_score(model, X, Y, cv=5))
     print(f"5-fold cross-validation score: {cross_val_mean * 100:.2f}")
     print("")
-    
+
+
+# Grid search
+np.random.seed(42)
+
+# Define the parameters to search over in the dictionary form
+param_grid = {'n_estimators': [i for i in range(100, 200, 10)]}
+# setup grid search 
+grid = GridSearchCV(estimator=RandomForestClassifier(),
+                    param_grid=param_grid,
+                    cv=5,
+                    verbose=1)
+# Fit the grid search into the data
+grid.fit(X, Y)
+print(f"The best parameter values are: {grid.best_params_}")
+print(f"With a score of: {grid.best_score_*100:.2f}%")
+
+# setting 
+clf = grid.best_estimator_
+print(clf) 
+
+# fit the best model
+clf = clf.fit(X_train, y_train)
+print(f"Best model score on a single split of the data:  {clf.score(X_test, y_test)*100:.2f}%")
+
+
+# Saving model 
+pickle.dump(model, open("random_forest_1.pkl", "wb"))
+
+# loading model
+loaded_pickle_model = pickle.load(open("random_forest_model_1.pkl", "rb"))
+print(f"Loaded pickle model prediction score: {loaded_pickle_model.score(X_test, y_test) * 100:.2f}%")
